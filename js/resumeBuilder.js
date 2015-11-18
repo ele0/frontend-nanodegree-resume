@@ -151,6 +151,23 @@ var work = {
 
 };
 
+work.display = function() {
+    //Add Work into index.html
+    if (work.jobs) {
+        for (var job in work.jobs) {
+            if (work.jobs.hasOwnProperty(job)) {
+                $('#workExperience').append(HTMLworkStart);
+                var formattedEmployer = HTMLworkEmployer.replace('%data%', work.jobs[job].employer);
+                var formattedTitle = HTMLworkTitle.replace('%data%', work.jobs[job].title);
+                var formattedDates = HTMLworkDates.replace('%data%', work.jobs[job].dates);
+                var formattedLocation = HTMLworkLocation.replace('%data%', work.jobs[job].location);
+                var formattedDescription = HTMLworkDescription.replace('%data%', work.jobs[job].description);
+                $('.work-entry:last').append((formattedEmployer + formattedTitle), formattedDates, formattedLocation, formattedDescription);
+            }
+        }
+    }
+}
+
 // Setup Projects data
 // TODO: update placeholder images
 var projects = {
@@ -171,41 +188,6 @@ var projects = {
     }]
 };
 
-
-
-
-
-
-
-
-// Change format of Bio name to be "Firstname LASTNAME"
-function inName() {
-    var names = bio.name.trim().split(' ');
-    var firstname = names[0].slice(0, 1).toUpperCase() + names[0].slice(1).toLowerCase();
-    var lastname = names[1].toUpperCase();
-    return firstname + ' ' + lastname;
-
-}
-
-
-
-function displayWork() {
-    //Add Work into index.html
-    if (work.jobs) {
-        for (var job in work.jobs) {
-            if (work.jobs.hasOwnProperty(job)) {
-                $('#workExperience').append(HTMLworkStart);
-                var formattedEmployer = HTMLworkEmployer.replace('%data%', work.jobs[job].employer);
-                var formattedTitle = HTMLworkTitle.replace('%data%', work.jobs[job].title);
-                var formattedDates = HTMLworkDates.replace('%data%', work.jobs[job].dates);
-                var formattedLocation = HTMLworkLocation.replace('%data%', work.jobs[job].location);
-                var formattedDescription = HTMLworkDescription.replace('%data%', work.jobs[job].description);
-                $('.work-entry:last').append((formattedEmployer + formattedTitle), formattedDates, formattedLocation, formattedDescription);
-            }
-        }
-    }
-}
-
 projects.display = function() {
     for (var project in projects.projects) {
         if (projects.projects.hasOwnProperty(project)) {
@@ -221,8 +203,20 @@ projects.display = function() {
     }
 }
 
+
+
+// Change format of Bio name to be "Firstname LASTNAME"
+function inName() {
+    var names = bio.name.trim().split(' ');
+    var firstname = names[0].slice(0, 1).toUpperCase() + names[0].slice(1).toLowerCase();
+    var lastname = names[1].toUpperCase();
+    return firstname + ' ' + lastname;
+
+}
+
+
 bio.display();
-displayWork();
+work.display();
 projects.display();
 education.display();
 
