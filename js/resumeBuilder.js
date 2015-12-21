@@ -12,7 +12,7 @@ var bio = {
         'location': 'Mechanicville, NY'
     },
     'welcomeMessage': 'Hi! Welcome and thanks for checking out my resume!',
-    'skills': ['JavaScript', 'HTML with CSS', 'Project Management'],
+    'skills': ['JavaScript', 'HTML with CSS', 'Project Management','Java'],
     'biopic': 'images/fry.jpg',
     'display': function() {
         //Format and add most of the bio elements
@@ -30,6 +30,7 @@ var bio = {
         //Add the header elements to the page
         $('#header').prepend(formattedName, formattedRole);
         $('#topContacts').append(formattedMobile, formattedEmail, formattedGithub, formattedTwitter, formattedPrimaryLocation);
+        $('#footerContacts').append(formattedMobile, formattedEmail, formattedGithub, formattedTwitter, formattedPrimaryLocation);
         $('#header').append(formattedPic, formattedWelcomeMessage);
 
         //Format and add in each skill
@@ -173,14 +174,14 @@ var projects = {
         'dates': 'October 2015',
         'description': 'A portfolio page of web projects',
         'images': [
-            'http://www.placehold.it/300x200', 'http://www.placehold.it/300x200' //'images/src/MyPortfolio_screenshot1.jpg', 'images/src/MyPortfolio_screenshot2.jpg'
+            'images/MyPortfolio_screenshot1.jpg', 'images/MyPortfolio_screenshot2.jpg'
         ]
     }, {
         'title': 'Resume',
         'dates': 'November 2015',
         'description': 'An online resume',
         'images': [
-            'http://www.placehold.it/300x200', 'http://www.placehold.it/300x200'
+            'http://www.unsplash.it/300/200/?random', 'http://www.unsplash.it/300/200/?random'
         ]
     }],
     'display': function() {
@@ -209,12 +210,13 @@ function inName() {
 
 }
 
-
+//Run display code of all sections
 bio.display();
 work.display();
 projects.display();
 education.display();
 
+//Add button to modify format of Name
 $('#main').append(internationalizeButton);
 // Add map to resume
 $('#mapDiv').append(googleMap);
