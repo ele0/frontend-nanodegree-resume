@@ -99,7 +99,7 @@ a {
   line-height: 28px;
 }
 
-#skills-h3 {
+.skills-h3 {
   color: #f5ae23;
   display: none;
 }
@@ -127,8 +127,7 @@ a {
   background-color: #4a4a4a;
 }
 
-/* TODO: Replace with image later */
-#header {
+.header {
   background-color: #484848;
 }
 
@@ -164,14 +163,14 @@ span {
   padding: 5px;
 }
 
-#lets-connect {
+.lets-connect {
   text-align: center;
 }
 
 /* Media queries to handle various device widths */
 
 @media only screen and (max-width: 1024px) {
-  #lets-connect {
+  .lets-connect {
     margin-top: 5%;
   }
 }
@@ -183,7 +182,7 @@ span {
 }
 
 @media only screen and (max-width: 750px) {
-  #lets-connect {
+  .lets-connect {
     margin-top: 10%;
   }
   .biopic {
@@ -194,21 +193,27 @@ span {
   }
 }
 
-#map {
+.map {
   display: block;
   height: 100%;
   margin: 0 5%;
 }
 
-#mapDiv {
+.mapDiv {
   height: 400px;
   width: 100%;
   padding-bottom: 5%;
 }
 
 @media only screen and (min-width: 750px) {
-  #skills-h3,
+  .skills-h3,
   .biopic {
     display: block;
+  }
+
+  .flex-skills{
+    flex-direction: column;
+    font-size: 15px;
+
   }
 }

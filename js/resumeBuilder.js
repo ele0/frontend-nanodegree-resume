@@ -16,16 +16,16 @@ var bio = {
     'biopic': 'images/fry.jpg',
     'display': function() {
         //Format and add most of the bio elements
-        var formattedName = HTMLheaderName.replace('%data%', bio.name);
-        var formattedRole = HTMLheaderRole.replace('%data%', bio.role);
-        var formattedEmail = HTMLemail.replace('%data%', bio.contacts.email);
-        var formattedGithub = HTMLgithub.replace('%data%', bio.contacts.github);
-        var formattedMobile = HTMLmobile.replace('%data%', bio.contacts.mobile);
-        var formattedTwitter = HTMLtwitter.replace('%data%', bio.contacts.twitter);
-        var formattedPrimaryLocation = HTMLlocation.replace('%data%', bio.contacts.location);
+        var formattedName = HTMLheaderName.replace('%data%', this.name);
+        var formattedRole = HTMLheaderRole.replace('%data%', this.role);
+        var formattedEmail = HTMLemail.replace('%data%', this.contacts.email);
+        var formattedGithub = HTMLgithub.replace('%data%', this.contacts.github);
+        var formattedMobile = HTMLmobile.replace('%data%', this.contacts.mobile);
+        var formattedTwitter = HTMLtwitter.replace('%data%', this.contacts.twitter);
+        var formattedPrimaryLocation = HTMLlocation.replace('%data%', this.contacts.location);
 
-        var formattedPic = HTMLbioPic.replace('%data%', bio.biopic);
-        var formattedWelcomeMessage = HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage);
+        var formattedPic = HTMLbioPic.replace('%data%', this.biopic);
+        var formattedWelcomeMessage = HTMLwelcomeMsg.replace('%data%', this.welcomeMessage);
 
         //Add the header elements to the page
         $('#header').prepend(formattedName, formattedRole);
@@ -34,9 +34,9 @@ var bio = {
         $('#header').append(formattedPic, formattedWelcomeMessage);
 
         //Format and add in each skill
-        if (Array.isArray(bio.skills) && (bio.skills.length > 0)) {
+        if (Array.isArray(this.skills) && (this.skills.length > 0)) {
             $('#header').append(HTMLskillsStart);
-            bio.skills.forEach(function(skill, index, array) {
+            this.skills.forEach(function(skill, index, array) {
                 var fSkill = HTMLskills.replace('%data%', skill);
                 $('#skills').append(fSkill);
             });
@@ -82,8 +82,8 @@ var education = {
 
     ],
     'display': function() {
-        if (education.schools && education.schools.length > 0) {
-            education.schools.forEach(function(school) {
+        if (this.schools && this.schools.length > 0) {
+            this.schools.forEach(function(school) {
                 $('#education').append(HTMLschoolStart);
                 var formattedSchoolName = HTMLschoolName.replace('%data%', school.name);
                 var formattedDegree = HTMLschoolDegree.replace('%data%', school.degree);
@@ -98,9 +98,9 @@ var education = {
         }
 
         //display online classes
-        if (education.onlineCourses && education.onlineCourses.length > 0) {
+        if (this.onlineCourses && this.onlineCourses.length > 0) {
             $('#education').append(HTMLonlineClasses);
-            education.onlineCourses.forEach(function(course) {
+            this.onlineCourses.forEach(function(course) {
                 $('#education').append(HTMLonlineClassStart);
                 var formattedOTitle = HTMLonlineTitle.replace('%data%', course.title);
                 var formattedOSchool = HTMLonlineSchool.replace('%data%', course.school);
