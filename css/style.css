@@ -185,9 +185,11 @@ span {
   .lets-connect {
     margin-top: 10%;
   }
+
   .biopic {
     width: 150px;
   }
+
   .welcome-message {
     display: none;
   }
@@ -211,7 +213,7 @@ span {
     display: block;
   }
 
-  .flex-skills{
+  .flex-skills {
     flex-direction: column;
     font-size: 15px;
 
