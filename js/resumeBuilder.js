@@ -2,7 +2,7 @@
 
 //Setup bio data
 var bio = {
-    'name': 'Ele O',
+    'name': 'Ele Ocholi',
     'role': 'Web Developer',
     'contacts': {
         'mobile': '650-555-5555',
@@ -210,7 +210,7 @@ work.display();
 projects.display();
 education.display();
 
-//Add button to modify format of Name
+//Add button to internationalize name (modify format of Name)
 $('#main').append(internationalizeButton);
 // Add map to resume
 $('#mapDiv').append(googleMap);
